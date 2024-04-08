@@ -1,0 +1,102 @@
+:root{
+    --fondo: #f8f4f1;
+    --texto_dorado: #8c5f41;
+    --texto-vino :#56161c
+}
+/*Ajustar el border box, y el valor de 1rem a 10px*/
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+/* Utilizar fuentes, evitar google fonts de forma directa por razones legales*/
+@font-face{
+    font-family: 'Dancing Script';
+    src: url(./assets/fonts/DancingScript-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Kalam';
+    src: url('./assets/fonts/static/Kalam-Regular.ttf') format('truetype'),
+        url('./assets/fonts/static/Kalam-Bold.ttf') format('truetype') weight 700,
+        url('./assets/fonts/static/Kalam-Light.ttf') format('truetype') weight 300;
+}
+
+/* indicar que la fuente se utiliza en toda la pagina */
+body{
+    font-family: 'kalam';
+    font-size: 1.6rem; /*Establecer el tamaño de la fuente a 16px*/
+    background-color: var(--fondo);
+    /*background-image: url(./assets/images/fondoFloresjpg.jpg);
+    background-size: cover;/*la imagen de fondo se escalará para cubrir todo el elemento contenedor*/
+    /*background-repeat: no-repeat;/*La imagen no se repetira para cubir el espacio*/
+    /*background-position: center center;/* coloca la imagen de fondo en el centro del contenedor tanto horizontal como verticalmente*/
+}
+
+h1{
+    font-family: 'Dancing Script', sans-serif;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-top: 0rem;
+}
+
+p{
+    font-weight: 700;
+    margin: 0rem;
+}
+
+.fondo{
+    background-image: url(./assets/images/Fondo\ vino.png);
+    height: max(100vh,60rem); /*Altura vidible dispositivo*/
+    width:  min(100%, 120rem);
+    margin: 0 auto; /*Centrar el div*/
+    
+    background-size: cover;/*la imagen de fondo se escalará para cubrir todo el elemento contenedor*/
+    background-repeat: no-repeat;/*La imagen no se repetira para cubir el espacio*/
+    background-position: center center;/* coloca la imagen de fondo en el centro del contenedor tanto horizontal como verticalmente*/
+}
+
+.presentacion{
+    display: flex;
+    justify-content: center;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3); /* Sombreado gris */
+
+    position: relative;
+}
+.presentacion img{
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.643); /* Sombreado gris */
+    height: max(100vh,60rem);
+    
+}
+.presentacion .tiempo{
+    position: absolute;    
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 4rem;
+}
+.tiempo{
+    width: min(90%,45rem);
+    display: flex;
+    align-items: baseline; 
+    justify-content: space-evenly;
+
+    color: var(--texto-vino);
+}
+.tiempo div{
+    flex-basis: auto; /* Mismo ancho base para todos los divs internos */
+    /*flex-grow: 1; /* Expandir para ocupar espacio disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tiempo h1{
+    font-weight: 900;
+    font-size: 4rem;
+    margin: 1rem 0rem;
+}
+.tiempo p{
+    font-size: 1.6rem;
+    font-weight: bolder;
+}
