@@ -1,0 +1,48 @@
+// Contador regresivo
+// Los meses comienzan a contar desde el 0, 0 es enero - 11 diciembre
+// año, mes, dias, horas, minutos
+let fechaBoda = new Date(2024, 11, 25, 5);
+
+let h1Dias = document.querySelector('#dias');
+let h1Horas = document.querySelector('#horas');
+let h1Minutos = document.querySelector('#minutos');
+let h1Segundos = document.querySelector('#segundos');
+
+console.log(h1Dias);
+
+function actualizarReloj() {
+    let horaActual = new Date();
+    // Diferencia de tiempo, se trabaja en milisegundos
+    let diferenciaMilisegundos = fechaBoda.getTime() - horaActual.getTime();
+    // Convertir dias, horas, minutos y segundos
+    let dias = Math.floor(diferenciaMilisegundos / (1000 * 60 * 60 * 24));
+    let modDias = diferenciaMilisegundos % (1000 * 60 * 60 * 24);
+
+    let horas = Math.floor(modDias / (1000 * 60 * 60));
+    let modHoras = modDias % (1000 * 60 * 60);
+
+    let minutos = Math.floor(modHoras / (1000 * 60))
+    let modMinutos = modHoras % (1000 * 60);
+
+    let segundos = Math.floor(modMinutos / 1000);
+
+    // Formato de horas, dias, minutos, segundos
+    horas=formatoTiempo(horas);
+    minutos=formatoTiempo(minutos);
+    segundos=formatoTiempo(segundos);
+
+    //Indresar los nuevos valores a las etiquetas
+    h1Dias.textContent=dias;
+    h1Horas.textContent=horas;
+    h1Minutos.textContent=minutos;
+    h1Segundos.textContent=segundos;
+}
+function formatoTiempo(tiempo){
+    if(tiempo<10){
+        tiempo='0'+tiempo;
+    }
+    return tiempo;
+}
+
+// Iniciar Reloj
+const reloj = setInterval(actualizarReloj, 1000);
