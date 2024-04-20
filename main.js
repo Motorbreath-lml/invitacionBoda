@@ -1,14 +1,12 @@
 // Contador regresivo
 // Los meses comienzan a contar desde el 0, 0 es enero - 11 diciembre
 // año, mes, dias, horas, minutos
-let fechaBoda = new Date(2024, 11, 25, 5);
+let fechaBoda = new Date(2024, 12, 7, 12);
 
 let h1Dias = document.querySelector('#dias');
 let h1Horas = document.querySelector('#horas');
 let h1Minutos = document.querySelector('#minutos');
 let h1Segundos = document.querySelector('#segundos');
-
-console.log(h1Dias);
 
 function actualizarReloj() {
     let horaActual = new Date();
@@ -43,6 +41,13 @@ function formatoTiempo(tiempo){
     }
     return tiempo;
 }
+actualizarReloj();
 
 // Iniciar Reloj
 const reloj = setInterval(actualizarReloj, 1000);
+
+// Modal de musica de fondo
+// const modalMusica = bootstrap.Modal.getOrCreateInstance('#exampleModal');
+// window.addEventListener('DOMContentLoaded',()=>{
+//     modalMusica.show();
+// });

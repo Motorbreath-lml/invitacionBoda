@@ -1,21 +1,27 @@
-:root{
+:root {
     --fondo: #f8f4f1;
     --texto_dorado: #8c5f41;
-    --texto-vino :#56161c
+    --texto-vino: #56161c
 }
+
 /*Ajustar el border box, y el valor de 1rem a 10px*/
-html{
+html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
-*,*:before,*:after{
+
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
+
 /* Utilizar fuentes, evitar google fonts de forma directa por razones legales*/
-@font-face{
+@font-face {
     font-family: 'Dancing Script';
     src: url(./assets/fonts/DancingScript-VariableFont_wght.ttf);
 }
+
 @font-face {
     font-family: 'Kalam';
     src: url('./assets/fonts/static/Kalam-Regular.ttf') format('truetype'),
@@ -24,9 +30,10 @@ html{
 }
 
 /* indicar que la fuente se utiliza en toda la pagina */
-body{
+body {
     font-family: 'kalam';
-    font-size: 1.6rem; /*Establecer el tamaño de la fuente a 16px*/
+    font-size: 1.6rem;
+    /*Establecer el tamaño de la fuente a 16px*/
     background-color: var(--fondo);
     /*background-image: url(./assets/images/fondoFloresjpg.jpg);
     background-size: cover;/*la imagen de fondo se escalará para cubrir todo el elemento contenedor*/
@@ -34,70 +41,155 @@ body{
     /*background-position: center center;/* coloca la imagen de fondo en el centro del contenedor tanto horizontal como verticalmente*/
 }
 
-h1{
+h1,
+h2,
+h3 {
     font-family: 'Dancing Script', sans-serif;
     font-weight: bold;
     text-transform: capitalize;
     margin-top: 0rem;
+    color: var(--texto-vino);
 }
 
-p{
-    font-weight: 700;
+p {
+    /* font-weight: 700; */
     margin: 0rem;
 }
 
-.fondo{
+.fondo {
     background-image: url(./assets/images/Fondo\ vino.png);
-    height: max(100vh,60rem); /*Altura vidible dispositivo*/
-    width:  min(100%, 120rem);
-    margin: 0 auto; /*Centrar el div*/
-    
-    background-size: cover;/*la imagen de fondo se escalará para cubrir todo el elemento contenedor*/
-    background-repeat: no-repeat;/*La imagen no se repetira para cubir el espacio*/
-    background-position: center center;/* coloca la imagen de fondo en el centro del contenedor tanto horizontal como verticalmente*/
-}
+    height: max(100dvh, 60rem);
+    /*Altura visible dispositivo*/
+    width: min(100%, 132rem);
+    margin: 0 auto;
+    /*Centrar el div*/
 
-.presentacion{
+    background-size: cover;
+    /*la imagen de fondo se escalará para cubrir todo el elemento contenedor*/
+    background-repeat: no-repeat;
+    /*La imagen no se repetira para cubir el espacio*/
+    background-position: center center;
+    /* coloca la imagen de fondo en el centro del contenedor tanto horizontal como verticalmente*/
+
     display: flex;
     justify-content: center;
-    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3); /* Sombreado gris */
+    align-items: center;
 
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    /* Sombreado gris */
     position: relative;
 }
-.presentacion img{
-    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.643); /* Sombreado gris */
-    height: max(100vh,60rem);
-    
+
+.fondo img {
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.643);
+    /* Sombreado gris */
+    /* max-width: 100%; */
+    /* width: 100%; */
 }
-.presentacion .tiempo{
-    position: absolute;    
+
+.fondo .tiempo {
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: 4rem;
 }
-.tiempo{
-    width: min(90%,35rem);
+
+.tiempo {
+    width: min(90%, 45rem);
     /* width: 90%; */
     display: flex;
-    align-items: baseline; 
+    align-items: baseline;
     justify-content: space-evenly;
-
     color: var(--texto-vino);
 }
-.tiempo div{
-    flex-basis: auto; /* Mismo ancho base para todos los divs internos */
+
+.tiempo div {
+    flex-basis: auto;
+    /* Mismo ancho base para todos los divs internos */
     /*flex-grow: 1; /* Expandir para ocupar espacio disponible */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.tiempo h1{
+
+.tiempo h1 {
     font-weight: 900;
     font-size: 4rem;
     margin: 1rem 0rem;
 }
-.tiempo p{
+
+.tiempo h2 {
+    font-size: 5rem;
+}
+
+.tiempo p {
     font-size: 1.6rem;
     font-weight: bolder;
+}
+
+/* Estilos para las invitaciones  particulares*/
+.invitacion-particular{
+    height: max(100dvh, 60rem); 
+    background-color: #d8bea8;
+}
+
+/* Estilos para las ubicaciones */
+/* .ubicaciones {
+    height: max(100dvh, 60rem); 
+    background-color: #d8bea8;
+    padding: 2rem 0rem;
+} */
+
+.ubicaciones-titulo {
+    font-family: "Great Vibes", cursive;
+    font-size: 3.5rem;
+    margin: 2rem 0rem 1rem 0rem;
+}
+
+.ubicaciones-fecha {
+    font-size: 2rem;
+}
+
+.ubicaciones .row {
+    padding: 1rem 0.5rem;
+}
+
+.card-titulo {
+    margin-top: 1rem;
+    font-family: "Merienda", cursive;
+    font-size: 2rem;
+}
+
+.card-body span {
+    font-weight: bold;
+}
+
+.btn-primary{
+    font-size: 1.5rem;
+    font-family: "Merienda", cursive;
+    font-weight: bold;
+    background-color: #d8bea8;
+    color: var(--texto-vino);
+    border: none;
+}
+
+/* Estilos Modal */
+.modal-content {
+    font-family: "Merienda", cursive;
+    color: var(--texto-vino);
+    background-color: var(--fondo);
+}
+.modal-content h5{
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+
+.modal-content span{
+    font-weight: bold;
 }
