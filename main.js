@@ -46,8 +46,40 @@ actualizarReloj();
 // Iniciar Reloj
 const reloj = setInterval(actualizarReloj, 1000);
 
+//Boton de musica
+const botonMusica= document.querySelector('#botonMusica');
+const musicaFondo= document.querySelector('#musicaFondo');
+
+
+botonMusica.addEventListener('click', ()=>{
+    intercambioIconoMusica();
+});
+
+function intercambioIconoMusica(){
+    if(botonMusica.classList.contains('bi-volume-up-fill')){
+        botonMusica.classList.add('bi-volume-mute-fill');
+        botonMusica.classList.remove('bi-volume-up-fill');
+        musicaFondo.pause();
+    }else{
+        botonMusica.classList.add('bi-volume-up-fill');
+        botonMusica.classList.remove('bi-volume-mute-fill');
+        musicaFondo.play();
+    }
+}
+
+//Detectar cuando la cancion termina volver a reproducir
+musicaFondo.addEventListener('ended', function() {
+    musicaFondo.play();
+});
+
 // Modal de musica de fondo
-// const modalMusica = bootstrap.Modal.getOrCreateInstance('#exampleModal');
-// window.addEventListener('DOMContentLoaded',()=>{
-//     modalMusica.show();
-// });
+const modalMusica = bootstrap.Modal.getOrCreateInstance('#modalMusica');
+window.addEventListener('DOMContentLoaded',()=>{
+    modalMusica.show();
+});
+
+const verConMusica = document.querySelector('#verConMusica');
+
+verConMusica.addEventListener('click',()=>{
+    intercambioIconoMusica();
+});

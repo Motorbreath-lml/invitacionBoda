@@ -132,8 +132,8 @@ p {
 }
 
 /* Estilos para las invitaciones  particulares*/
-.invitacion-particular{
-    height: max(100dvh, 60rem); 
+.invitacion-particular {
+    height: max(100dvh, 60rem);
     background-color: #d8bea8;
 }
 
@@ -168,7 +168,7 @@ p {
     font-weight: bold;
 }
 
-.btn-primary{
+.btn-primary {
     font-size: 1.5rem;
     font-family: "Merienda", cursive;
     font-weight: bold;
@@ -183,13 +183,37 @@ p {
     color: var(--texto-vino);
     background-color: var(--fondo);
 }
-.modal-content h5{
+
+.modal-content h5 {
     font-size: 1.6rem;
     font-weight: bold;
     text-transform: capitalize;
     margin-bottom: 1rem;
 }
 
-.modal-content span{
+.modal-content span {
     font-weight: bold;
+}
+
+/*Boton de Musica*/
+.musica {
+    position: fixed;
+    bottom: 1rem;
+    left: 0.5rem;
+}
+
+.musica i {
+    font-size: 2rem;
+    color: white;
+    background-color: #b29983;
+    padding: .6rem 1.2rem;
+    border-radius: 50%;
+}
+
+#modalMusica h5 {
+    margin: 2rem;
+}
+
+#modalMusica button {
+    margin: 1rem;
 }
