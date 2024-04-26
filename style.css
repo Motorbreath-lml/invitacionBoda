@@ -75,7 +75,8 @@ p {
     justify-content: center;
     align-items: center;
 
-    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    box-shadow: 0.5rem 0rem 1rem -0.5rem rgba(0, 0, 0, 0.3),
+        -0.5rem 0rem 1rem -0.5rem rgba(0, 0, 0, 0.3);
     /* Sombreado gris */
     position: relative;
 }
@@ -84,7 +85,8 @@ p {
     height: 100%;
     object-fit: cover;
     overflow: hidden;
-    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.643);
+    box-shadow: 1rem 0rem 1.5rem -0.5rem rgba(0, 0, 0, 0.5),
+        -1rem 0rem 1.5rem -0.5rem rgba(0, 0, 0, 0.5);
     /* Sombreado gris */
     /* max-width: 100%; */
     /* width: 100%; */
@@ -98,7 +100,7 @@ p {
 }
 
 .tiempo {
-    width: min(90%, 45rem);
+    width: min(90%, 38rem);
     /* width: 90%; */
     display: flex;
     align-items: baseline;
@@ -133,8 +135,52 @@ p {
 
 /* Estilos para las invitaciones  particulares*/
 .invitacion-particular {
+    background-image: url(./assets/images/FondoParticular.png);
     height: max(100dvh, 60rem);
-    background-color: #d8bea8;
+    /*Altura visible dispositivo*/
+    width: min(100%, 132rem);
+    margin: 0 auto;
+    /*Centrar el div*/
+
+    background-size: cover;
+    /*la imagen de fondo se escalará para cubrir todo el elemento contenedor*/
+    background-repeat: no-repeat;
+    /*La imagen no se repetira para cubir el espacio*/
+    background-position: center center;
+    /* coloca la imagen de fondo en el centro del contenedor tanto horizontal como verticalmente*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0.5rem 0rem 1rem -0.5rem rgba(0, 0, 0, 0.3),
+                -0.5rem 0rem 1rem -0.5rem rgba(0, 0, 0, 0.3);
+    /* Sombreado gris */
+    /* position: relative; */
+}
+
+.invitacion-texto {
+    width: min(90%, 45rem);
+    padding: 2rem;
+    font-size: 1.6rem;
+
+    border-width: 0.5rem;/* Ancho del borde */
+    border-style: solid;/* Estilo del borde */
+    border-image: linear-gradient(to right,#ecc440, #fffa8a, #ddac17, #ffff95); /* Gradiente dorado */
+    border-image-slice: 1; /* Define la parte del borde que se repite */
+}
+
+.invitacion-texto p{
+    color: var(--texto-vino);
+    font-weight: bold;
+}
+
+.invitacion-texto p:last-of-type{
+    margin: 1.5rem 0 1rem 0;
+}
+
+.invitacion-texto h1 {
+    margin: 1.6rem;
 }
 
 /* Estilos para las ubicaciones */
@@ -193,6 +239,98 @@ p {
 
 .modal-content span {
     font-weight: bold;
+}
+
+/* Itinerario */
+.itinerario {
+    background-image: url(./assets/images/Fondo\ vino.png);
+    height: max(100dvh, 60rem); /*Altura visible dispositivo*/
+    /* width: min(100%, 132rem); */
+    margin: 0 auto;
+    /*Centrar el div*/
+
+    /* background-size: cover; */
+    /*la imagen de fondo se escalará para cubrir todo el elemento contenedor*/
+    /* background-repeat: no-repeat; */
+    /*La imagen no se repetira para cubir el espacio*/
+    /* background-position: center center; */
+    /* coloca la imagen de fondo en el centro del contenedor tanto horizontal como verticalmente*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0.5rem 0rem 1rem -0.5rem rgba(0, 0, 0, 0.3),
+                -0.5rem 0rem 1rem -0.5rem rgba(0, 0, 0, 0.3);
+    /* Sombreado gris */
+    /* position: relative; */
+}
+
+.itinerario img{
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    box-shadow: 1rem 0rem 1.5rem -0.5rem rgba(0, 0, 0, 0.5),
+        -1rem 0rem 1.5rem -0.5rem rgba(0, 0, 0, 0.5);
+}
+
+/* Mesa de regalos */
+.mesa-regalos{
+    padding: 1rem;
+}
+
+.mesa-regalos h1{
+    font-size: 5rem;  
+    margin: 2rem 0rem;
+}
+
+.mesa-regalos p{
+    color: var(--texto-vino);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.mesa-regalos img{
+    height: 100%;
+    /* width: 100%; */
+    object-fit: scale-down;
+    padding: 1rem;
+}
+
+.btn-mesa{
+    height: 8rem;
+    width: 30rem;
+    border-radius: 2rem;
+    border-width: 0.2rem;/* Ancho del borde */
+    border-style: solid;/* Estilo del borde */
+    border-color: var(--texto-vino);
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.btn-mesa:hover{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); 
+}
+
+.btn-banco{
+    height: 4rem;
+    width: 22rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    color: var(--texto-vino);
+
+    border-radius: 2rem;
+    border-width: 0.2rem;/* Ancho del borde */
+    border-style: solid;/* Estilo del borde */
+    border-color: var(--texto-vino);
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+}
+.btn-banco:hover{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); 
 }
 
 /*Boton de Musica*/

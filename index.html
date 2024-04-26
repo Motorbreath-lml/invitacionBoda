@@ -60,10 +60,20 @@
 
   <!-- Seccion Invitaciones Particulares -->
   <div class="invitacion-particular">
-    <h1>Aqui van la invitacion en particular</h1>
-    <h2>Ejemplo</h2>
-    <h3>Invitamos a la familia morales</h3>
-
+    <!-- <img src="./assets/images/invitacionParticular.png" alt="Invitacion Particular"> -->
+    <div class="invitacion-texto text-center">
+      <img src="./assets/images/logo-removebg-preview.png" alt="logo">
+      <p class="">
+        [Nombre invitado, familia], con gran alegría y emoción te extendemos nuestra invitación para que compartas a
+        nuestro lado uno de los momentos más especiales de nuestra vida. Esperamos sinceramente que puedas unirte a esta
+        celebración para compartir la felicidad, el agradecimiento y el amor en el evento de nuestra boda. Será un honor
+        contar con tu presencia en el inicio de esta gran aventura que marcará el comienzo de nuestro matrimonio.
+      </p>
+      <p class="">
+        Con profundo agradecimiento y cariño.
+      </p>
+      <h1 class="">Lilián y David</h1>
+    </div>
   </div>
 
   <!-- Seccion ubicaciones -->
@@ -224,23 +234,55 @@
 
   <!-- Seccion itinerario -->
   <div class="itinerario">
-    <h1>Aqui va el itinerario</h1>
-    <h2>Ejemplo</h2>
-    <h3> la cremonia es a las 12</h3>
-    <h3> las fotos es a las 14</h3>
-    <h3> la recepcion es a las 16</h3>
-    <h3> la fiesta es las 18</h3>
-    <h3> Final de la fiesta 3 horas</h3>
+    <img src="./assets/images/itinerario.png" alt="itinerario">
   </div>
 
   <!-- Seccion mesa de regalos -->
   <div class="mesa-regalos">
-    <h1>Aqui va la mesa de regalos</h1>
-    <h2>Ejemplo</h2>
-    <h3> wishlist de amazon</h3>
-    <h3> wishlist de liverpool</h3>
-    <h3> wishlist de sears</h3>
-    <h3> Datos bancarios</h3>
+    <div class="container text-center">
+      <div class="row">
+        <h1>mesa de regalos</h1>
+      </div>
+      <div class="row">
+        <p>
+          Nuestro mayor regalo es tu presencia, pero si deseas obsequiarnos algo, te dejamos algunas opciones:
+        </p>
+      </div>
+      <div class="row d-flex justify-content-center align-items-center">
+        <a href="https://mesaderegalos.liverpool.com.mx/" rel="noopener noreferrer" target="_blank"
+          class="btn-mesa col-12 col-lg-6 m-3">
+          <img src="./assets/images/logos/Liverpool.png" alt="Liverpool">
+        </a>
+        <a href="https://www.amazon.com.mx/registries" rel="noopener noreferrer" target="_blank"
+          class="btn-mesa col-12 col-lg-6 m-3">
+          <img src="./assets/images/logos/Amazon.png" alt="Amazon">
+        </a>
+        <a href="https://www.sears.com.mx/Mesa-de-Regalos/" rel="noopener noreferrer" target="_blank"
+          class="btn-mesa col-12 col-lg-6 m-3">
+          <img src="./assets/images/logos/Sears.svg" alt="Sears">
+        </a>
+      </div>
+
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-8 d-flex justify-content-center align-items-center">
+          <div class="btn-banco mb-3" data-bs-toggle="collapse" data-bs-target="#collapseBanco" aria-expanded="false" aria-controls="collapseBanco">
+            <i class="bi bi-bank"></i> Ver Datos bancarios
+          </div>          
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col col-md-6">
+          <div class="collapse" id="collapseBanco">
+            <div class="card card-body">
+              <p>BANCO: XXXXXXXXXXX</p>
+              <p>Nº DE CUENTA: XXXXXXXX</p>
+              <p>CUENTA CLABE: XXXXXXXX</p>
+              <p>TITULAR: XXXXXXXXXX</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Seccion confrimar asistencia -->
@@ -269,7 +311,7 @@
     <i id="botonMusica" class="bi bi-volume-mute-fill"></i>
     <audio id="musicaFondo" src="./assets/music/Johann Pachelbel - Canon in D Major.mp3"></audio>
   </div>
-  <!-- Modal de musica -->  
+  <!-- Modal de musica -->
   <div class="modal fade" id="modalMusica" tabindex="-1" aria-labelledby="modalMusicaLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -279,14 +321,14 @@
           </h5>
           <div class="">
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-              Solo leer            
-              <i class="bi bi-book"></i>            
+              Solo leer
+              <i class="bi bi-book"></i>
             </button>
             <button id="verConMusica" type="button" class="btn btn-primary" data-bs-dismiss="modal">
               Ver con musica
               <i class="bi bi-music-note-beamed"></i>
             </button>
-          </div>          
+          </div>
         </div>
       </div>
     </div>
