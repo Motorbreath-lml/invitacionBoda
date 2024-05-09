@@ -1,0 +1,20 @@
+{
+    "name": "j3r4ck/boda",
+    "description": "Creacion de invitaciones para una boda",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Carlos Hernandez",
+            "email": "21superbeast@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\": "database/",
+            "Enums\\": "enums/",
+            "Router\\": "router/"
+        }
+    },
+    "require": {}
+}
