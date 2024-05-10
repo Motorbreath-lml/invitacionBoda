@@ -1,24 +1,28 @@
 <?php
 
-$filename = './invitadosLilian.txt'; // Replace with the actual filename
+iniciarInserts('./invitadosLilian.txt','Lilian');
+iniciarInserts('./invitadosDavid.txt', 'David');
 
-if (file_exists($filename)) {
-    $fileContent = file_get_contents($filename);
-    //echo $fileContent; // Displays the entire file content
-    creacionInserts($fileContent);
-} else {
-    echo "Error: File '$filename' not found.";
+function iniciarInserts($filename,$novie){
+    if (file_exists($filename)) {
+        $fileContent = file_get_contents($filename);
+        //echo $fileContent; // Displays the entire file content
+        creacionInserts($fileContent,$novie);
+    } else {
+        echo "Error: File '$filename' not found.";
+    }
 }
 
-function creacionInserts($fileContent)
+function creacionInserts($fileContent,$novie)
 {
     $lines = explode("\n", $fileContent); // Divide en líneas
     $inserts = [];
     array_push($inserts, "INSERT INTO invitados (invitado_de, familia, nombre, slug) VALUES\n");
+    $indivtado_de=strtolower($novie);
 
     foreach ($lines as $line) {
         $line=trim($line);
-        $sentencia = "('lilian',";
+        $sentencia = "('$indivtado_de',";
         if (preg_match('/FAM/', $line)) { //FAM en alguna parte de la sentencia
             $sentencia .= '1,';
         } else {
@@ -32,15 +36,15 @@ function creacionInserts($fileContent)
     $ultimoElemento.=";";
     array_push($inserts,$ultimoElemento);
 
-    echo "EL array inserts:\n";
-    var_dump($inserts);
+    // echo "EL array inserts:\n";
+    // var_dump($inserts);
 
-    $filename = 'inserts.sql'; // Nombre del archivo   
+    $filename = "inserts$novie.sql"; // Nombre del archivo   
 
     if (file_put_contents($filename, $inserts)) {
-        echo "Archivo creado y líneas escritas correctamente.";
+        echo "Archivo creado y líneas escritas correctamente. $filename";
     } else {
-        echo "Error: No se pudo escribir en el archivo.";
+        echo "Error: No se pudo escribir en el archivo. $filename";
     }
 }
 
@@ -63,14 +67,3 @@ function generarSlug($titulo)
 
     return $slug;
 }
-
-/*
-
-
-  ('Juan Pérez', 'juan.perez@ejemplo.com', 'Ciudad de México'),
-  ('María García', 'maria.garcia@ejemplo.com', 'Guadalajara'),
-  ('Pedro López', 'pedro.lopez@ejemplo.com', 'Monterrey'),
-  ('Ana Sánchez', 'ana.sanchez@ejemplo.com', 'Puebla'),
-  ('Carlos Rodríguez', 'carlos.rodriguez@ejemplo.com', 'Tijuana');
-
-*/

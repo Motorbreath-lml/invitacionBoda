@@ -1,0 +1,15 @@
+INSERT INTO invitados (invitado_de, familia, nombre, slug) VALUES
+('david',1,'SR. JOSE ANTONIO LOPEZ Y FAM', 'sr-jose-antonio-lopez-y-fam'),
+('david',1,'FAM. VELAZQUEZ LOPEZ', 'fam-velazquez-lopez'),
+('david',1,'FAM. SOLORZANO LOPEZ', 'fam-solorzano-lopez'),
+('david',1,'FAM. SOLORZANO OJEDA', 'fam-solorzano-ojeda'),
+('david',1,'FAM. LOPEZ BRITO', 'fam-lopez-brito'),
+('david',1,'FAM. LOPEZ MONTESINOS', 'fam-lopez-montesinos'),
+('david',1,'FAM. OROZCO LOPEZ', 'fam-orozco-lopez'),
+('david',1,'FAM. TORRES OROZCO', 'fam-torres-orozco'),
+('david',1,'SRA. LIDIA OROZCO Y FAMILIA', 'sra-lidia-orozco-y-familia'),
+('david',1,'FAM. OROZCO ESQUERRA', 'fam-orozco-esquerra'),
+('david',1,'SR. DANIEL OROZCO Y FAMILIA', 'sr-daniel-orozco-y-familia'),
+('david',1,'SRA. XOCHIL OROZCO Y FAMILIA', 'sra-xochil-orozco-y-familia'),
+('david',1,'SRTA. NADIA SANCHEZ Y FAMILIA', 'srta-nadia-sanchez-y-familia'),
+('david',1,'FAM. ALVAREZ FLORES', 'fam-alvarez-flores');
