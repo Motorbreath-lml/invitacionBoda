@@ -2,7 +2,7 @@
 
 namespace Database\PDO;
 
-class Connection {
+class Conection {
 
     private static $instance;
     private $connection;

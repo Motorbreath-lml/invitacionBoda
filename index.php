@@ -15,7 +15,11 @@ $id = $slug[1] ?? null; //Si el segundo elemento no existe o está vacío, se as
 $router = new RouterHandler();
 
 switch ($resource){
-    case '/':
+    case 'control':
+        $method = "control";
+        $router->set_method($method);
+        $router->route(InvitadosController::class, $id);
+        break;
     case 'invitacion':
         $method = $_POST["method"] ?? "get";
         $router->set_method($method);
@@ -23,5 +27,6 @@ switch ($resource){
         $router->route(InvitadosController::class, $id);
         break;
     default:
-        
+        echo "Mostrar invitacion general desde el index";
+        break;
 }

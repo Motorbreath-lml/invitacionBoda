@@ -25,6 +25,13 @@ class RouterHandler {
                     $resource->show($id);
                 else
                     $resource->index();
+                break;
+            case "control":
+                $resource->control();
+                break;
+            default:
+                $resource->index();
+                break;
         }
     }    
 }
