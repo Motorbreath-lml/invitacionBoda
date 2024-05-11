@@ -23,10 +23,10 @@ class Conection {
     }
 
     private function make_connection() {
-        $server = "localhost"; // sql212.infinityfree.com
-        $database = "invitaciones_boda"; // if0_36477305_finanzas_personales
-        $username = "root"; // if0_36477305
-        $password = ""; // MlM6FF3q1i3Jdo
+        $server = "localhost"; 
+        $database = "invitaciones_boda"; 
+        $username = "root"; 
+        $password = ""; 
 
         $conexion = new \PDO("mysql:host=$server;dbname=$database", $username, $password);
 

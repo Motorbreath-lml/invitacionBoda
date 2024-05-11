@@ -10,17 +10,25 @@ class InvitadosController {
     }
 
     public function index(){
-        echo "Mostrar invitacion general";
+        require ("./public/invitacion.php");
     }
 
-    public function show($slug){
-        echo "mostrar la invitavion con el slug $slug";
+    public function show($slug){        
+        $stmt = $this->connection->prepare("SELECT * FROM invitados WHERE slug='$slug'");
+        $stmt->execute();
+        $results = $stmt->fetchAll();
+        require("./public/invitacion.php");
     }
 
     public function control(){
-        $stmt = $this->connection->prepare("SELECT * FROM invitados");
+        $stmt = $this->connection->prepare("SELECT * FROM invitados WHERE invitado_de='lilian'");
         $stmt->execute();
-        $results = $stmt->fetchAll();        
+        $resultsLilian = $stmt->fetchAll();
+
+        $stmt = $this->connection->prepare("SELECT * FROM invitados WHERE invitado_de='david'");
+        $stmt->execute();
+        $resultsDavid = $stmt->fetchAll();
+
         require("./public/control.php");
     }
 }

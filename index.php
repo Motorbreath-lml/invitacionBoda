@@ -27,6 +27,6 @@ switch ($resource){
         $router->route(InvitadosController::class, $id);
         break;
     default:
-        echo "Mostrar invitacion general desde el index";
+        $router->route(InvitadosController::class, $id);
         break;
 }
