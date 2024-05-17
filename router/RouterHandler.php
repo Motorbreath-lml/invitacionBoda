@@ -21,16 +21,20 @@ class RouterHandler {
 
         switch($this->method) {
             case "get":
-                if ($id)
+                if($id && $id=="create"){ //El create no existe es un modal
+                    $resource->create();
+                }
+                else if ($id)
                     $resource->show($id);
                 else
                     $resource->index();
                 break;
-            case "control":
-                $resource->control();
+            case "post":
+                $resource->store($this->data);
                 break;
-            default:
-                $resource->index();
+            case "invitacion":
+            default:                
+                $resource->invitacion($id);
                 break;
         }
     }    

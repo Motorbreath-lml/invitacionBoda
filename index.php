@@ -16,17 +16,16 @@ $router = new RouterHandler();
 
 switch ($resource){
     case 'control':
-        $method = "control";
-        $router->set_method($method);
-        $router->route(InvitadosController::class, $id);
-        break;
-    case 'invitacion':
         $method = $_POST["method"] ?? "get";
         $router->set_method($method);
         $router->set_data($_POST);
         $router->route(InvitadosController::class, $id);
         break;
+    case 'invitacion':
     default:
-        $router->route(InvitadosController::class, $id);
+        $method = 'invitacion';
+        $router->set_method($method);
+        $router->set_data($_POST);
+        $router->route(InvitadosController::class, $id);        
         break;
 }
