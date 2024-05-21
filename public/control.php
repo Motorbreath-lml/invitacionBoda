@@ -46,9 +46,10 @@
         <tr>
           <th scope="col">No.</th>
           <th scope="col">Nombre</th>
-          <th scope="col">Numero de Pases</th>
-          <th scope="col">Link</th>
-          <th scope="col">Copear link</th>
+          <th scope="col">Numero de Pases</th>          
+          <th scope="col">Es una familia</th>
+          <th scope="col">Invitacion</th>
+          <th scope="col">Acción</th>
         </tr>
       </thead>
       <tbody>
@@ -57,15 +58,27 @@
           <tr>
             <th scope="row"><?= $contador ?></th>
             <td><?= $registro["nombre"] ?></td>
-            <td><?= $registro["numero_pases"]?></td>
+            <td><?= $registro["numero_pases"] ?></td>
+            <?php $esFamilia=($registro["familia"]>0)? "Si":"No"; ?>
+            <td><?= $esFamilia ?></td>
             <td>
-              <a class="btn btn-primary btn-sm" role="button" aria-disabled="true" href="http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>" target="_blank" rel="noopener noreferrer">
+              <a class="btn btn-info" role="button" aria-disabled="true" href="http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>" target="_blank" rel="noopener noreferrer">
                 <i class="bi bi-box-arrow-up-right"></i>
+                Ver
               </a>
-            </td>
-            <td>
               <button type="button" class="btn btn-primary btn-sm" onclick="copiarTexto('http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>')">
                 <i class="bi bi-copy"></i>
+                Copear
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#createModal" data-bs-id="<?= $registro["id"] ?>">
+                <i class="bi bi-pencil-square"></i>
+                Editar
+              </button>
+              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="<?= $registro["id"] ?>">
+                <i class="bi bi-trash3"></i>
+                Eliminar
               </button>
             </td>
             <?php $contador++ ?>
@@ -87,8 +100,8 @@
           <th scope="col">No.</th>
           <th scope="col">Nombre</th>
           <th scope="col">Numero de Pases</th>
-          <th scope="col">Link</th>
-          <th scope="col">Copear link</th>
+          <th scope="col">Invitacion</th>
+          <th scope="col">Acción</th>
         </tr>
       </thead>
       <tbody>
@@ -97,15 +110,25 @@
           <tr>
             <th scope="row"><?= $contador ?></th>
             <td><?= $registro["nombre"] ?></td>
-            <td><?= $registro["numero_pases"]?></td>
+            <td><?= $registro["numero_pases"] ?></td>
             <td>
-              <a class="btn btn-primary btn-sm" role="button" aria-disabled="true" href="http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>" target="_blank" rel="noopener noreferrer">
+              <a class="btn btn-info" role="button" aria-disabled="true" href="http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>" target="_blank" rel="noopener noreferrer">
                 <i class="bi bi-box-arrow-up-right"></i>
+                Ver
               </a>
-            </td>
-            <td>
               <button type="button" class="btn btn-primary btn-sm" onclick="copiarTexto('http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>')">
                 <i class="bi bi-copy"></i>
+                Copear
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#createModal" data-bs-id="<?= $registro["id"] ?>">
+                <i class="bi bi-pencil-square"></i>
+                Editar
+              </button>
+              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="<?= $registro["id"] ?>">
+                <i class="bi bi-trash3"></i>
+                Eliminar
               </button>
             </td>
             <?php $contador++ ?>
@@ -115,7 +138,7 @@
     </table>
   </div>
 
-  <!-- Modal Crear -->
+  <!-- Modal Crear/Editar -->
   <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -125,7 +148,8 @@
         </div>
         <div class="modal-body">
           <form id="formCrear" action="/control/store" method="post">
-            <input type="hidden" name="method" value="post">
+            <input id="inputMethod" type="hidden" name="method" value="post">
+            <input id="inputId" type="hidden" name="id" value="">
 
             <label for="nombre" class="form-label">Nombre:</label>
             <input type="text" name="nombre" id="nombre" class="form-control" placeholder="p.ej SEÑOR LOPEZ, FAMILIA PEREZ" required>
@@ -177,17 +201,124 @@
     </div>
   </div>
 
+  <!-- Modal Eliminar -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="eliminaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="eliminaModalLabel">Aviso</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¿Desea eliminar la invitacion para <span id="invitadoSpan"></span> ?
+        </div>
+
+        <div class="modal-footer">
+          <form id="deleteForm" action="" method="post">
+            <input type="hidden" name="deleteId" id="deleteId" value="">
+            <input type="hidden" name="method" value="delete">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script>
+    // Modal Eliminar
+    const deleteModal = document.getElementById('deleteModal');
+    const deleteForm = document.getElementById('deleteForm');
+    const deleteId = document.getElementById('deleteId');
+    const invitadoSpan = document.getElementById('invitadoSpan');
+
+    deleteModal.addEventListener('shown.bs.modal', () => {
+      let button = event.relatedTarget
+      let id = button.getAttribute('data-bs-id')
+      console.log('Voy a mandar a eliminar el id:' + id);
+      const url = 'control/' + id; // URL de destino
+      const options = {
+        method: 'GET', // Método de solicitud (GET, POST, PUT, etc.)
+        headers: {
+          'Content-Type': 'application/json' // Tipo de contenido del cuerpo de la solicitud (si es necesario)
+        }
+      };
+      fetch(url, options)
+        .then(response => response.json()) // Convertir la respuesta a JSON
+        .then(data=>{
+          invitadoSpan.textContent=data.nombre;
+          deleteForm.action='/control/'+id;
+        })
+        .catch(error => console.error('Error:', error)); // Manejar errores
+    });
+    deleteModal.addEventListener('hidden.bs.modal', () => {
+      invitadoSpan.textContent = '';
+      deleteForm.action='';
+    });
+
+
     //Enviar el formulario de crear
     let btnGuardarModal = document.getElementById("btn-guardar-modal");
     let formCrear = document.getElementById("formCrear");
 
-    const createModal = document.getElementById('createModal')
-    const nombreInput = document.getElementById('nombre')
+    const createModal = document.getElementById('createModal');
+    const nombreInput = document.getElementById('nombre');
+    const metodoInput = document.getElementById('inputMethod');
+    const idInput = document.getElementById('inputId');
 
     createModal.addEventListener('shown.bs.modal', () => {
       nombreInput.focus()
+      let button = event.relatedTarget
+      let id = button.getAttribute('data-bs-id')
+      if (id) {
+        // console.log('Mandar el id: ' + id + ' con el formulario a editar');
+        let rdoBtnInv1 = document.getElementById('invitado_de1');
+        let rdoBtnInv2 = document.getElementById('invitado_de2');
+        let rdoBtnFam1 = document.getElementById('familia1');
+        let rdoBtnFam2 = document.getElementById('familia2');
+        let pasesInput = document.getElementById('numero_pases');
+
+        const url = 'control/' + id; // URL de destino
+        const options = {
+          method: 'GET', // Método de solicitud (GET, POST, PUT, etc.)
+          headers: {
+            'Content-Type': 'application/json' // Tipo de contenido del cuerpo de la solicitud (si es necesario)
+          }
+        };
+
+        fetch(url, options)
+          .then(response => response.json()) // Convertir la respuesta a JSON
+          .then( // Procesar los datos JSON
+            // data => console.log(data)
+            data => {
+              nombreInput.value = data.nombre;
+              if (data.invitado_de === 'lilian') {
+                rdoBtnInv1.checked = true;
+                rdoBtnInv2.checked = false;
+              } else {
+                rdoBtnInv1.checked = false;
+                rdoBtnInv2.checked = true;
+              }
+
+              if (data.familia) {
+                rdoBtnFam1.checked = true;
+                rdoBtnFam2.checked = false;
+              } else {
+                rdoBtnFam1.checked = false;
+                rdoBtnFam2.checked = true;
+              }
+              pasesInput.value = parseInt(data.numero_pases);
+              formCrear.action = '/control/update';
+              metodoInput.value = 'update';
+              idInput.value = id;
+            }
+          )
+          .catch(error => console.error('Error:', error)); // Manejar errores
+      } else {
+        formCrear.action = '/control/store';
+        metodoInput.value = 'post';
+      }
     })
 
     createModal.addEventListener('hidden.bs.modal', () => {
@@ -195,9 +326,10 @@
     });
 
     btnGuardarModal.addEventListener("click", function() {
-      if(nombreInput.value.trim()===''){
-        appendAlert('El campo de Nombre no puede estar vacio','warning');
-      }else{
+      if (nombreInput.value.trim() === '') {
+        appendAlert('El campo de Nombre no puede estar vacio', 'warning');
+      } else {
+        console.log('Lo mande a:' + formCrear.action);
         formCrear.submit();
       }
     });

@@ -32,6 +32,12 @@ class RouterHandler {
             case "post":
                 $resource->store($this->data);
                 break;
+            case "update":
+                $resource->update($this->data);
+                break;
+            case "delete":
+                $resource->delete($id);
+                break;
             case "invitacion":
             default:                
                 $resource->invitacion($id);
