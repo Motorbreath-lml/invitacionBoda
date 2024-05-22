@@ -62,7 +62,7 @@
             <?php $esFamilia=($registro["familia"]>0)? "Si":"No"; ?>
             <td><?= $esFamilia ?></td>
             <td>
-              <a class="btn btn-info" role="button" aria-disabled="true" href="http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>" target="_blank" rel="noopener noreferrer">
+              <a class="btn btn-info btn-sm" role="button" aria-disabled="true" href="http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>" target="_blank" rel="noopener noreferrer">
                 <i class="bi bi-box-arrow-up-right"></i>
                 Ver
               </a>
@@ -100,6 +100,7 @@
           <th scope="col">No.</th>
           <th scope="col">Nombre</th>
           <th scope="col">Numero de Pases</th>
+          <th scope="col">Es una famila</th>
           <th scope="col">Invitacion</th>
           <th scope="col">Acción</th>
         </tr>
@@ -111,8 +112,10 @@
             <th scope="row"><?= $contador ?></th>
             <td><?= $registro["nombre"] ?></td>
             <td><?= $registro["numero_pases"] ?></td>
+            <?php $esFamilia=($registro["familia"]>0)? "Si":"No"; ?>
+            <td><?= $esFamilia ?></td>
             <td>
-              <a class="btn btn-info" role="button" aria-disabled="true" href="http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>" target="_blank" rel="noopener noreferrer">
+              <a class="btn btn-info btn-sm" role="button" aria-disabled="true" href="http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>" target="_blank" rel="noopener noreferrer">
                 <i class="bi bi-box-arrow-up-right"></i>
                 Ver
               </a>
