@@ -138,6 +138,77 @@ a{
     font-weight: bolder;
 }
 
+/* Estilos para la introduccion*/
+.invitacion-intro {
+    background-image: url(./assets/images/fondo_pases.png);
+    height: max(100dvh, 60rem);
+    width: min(100%, 132rem);
+    margin: 0 auto;
+
+    background-size: cover;    
+    background-repeat: no-repeat;    
+    background-position: center center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* box-shadow: 0.5rem 0rem 1rem -0.5rem rgba(0, 0, 0, 0.3),
+                -0.5rem 0rem 1rem -0.5rem rgba(0, 0, 0, 0.3); */
+}
+
+.invitacion-intro-texto {
+    width: min(95%, 53rem);
+    padding: 0.5rem;
+    font-size: 1.6rem;
+
+    border-width: 0.5rem;/* Ancho del borde */
+    border-style: solid;/* Estilo del borde */
+    border-image: linear-gradient(to right,#ecc440, #fffa8a, #ddac17, #ffff95); /* Gradiente dorado */
+    border-image-slice: 1; /* Define la parte del borde que se repite */
+}
+
+.invitacion-intro .contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 0rem;
+    height: 25rem;
+}
+
+@media (min-width: 768px){
+    .invitacion-intro .contenedor{
+        flex-direction: row;
+    }
+}
+
+.invitacion-intro .novios{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.invitacion-intro .contenedor img{
+    vertical-align: super;
+    height: 1rem;
+    /* margin-right: 0.5rem; */
+}
+
+.invitacion-intro p{
+    color: var(--texto-vino);
+    display: inline-block;
+    font-size: 1.8rem;
+}
+
+.invitacion-intro h4{
+    color: var(--texto-vino);
+    font-size: 2rem;
+    /* font-weight: 600; */
+}
+
 /* Estilos para las invitaciones  particulares*/
 .invitacion-particular {
     background-image: url(./assets/images/FondoParticular.png);
@@ -166,18 +237,19 @@ a{
 
 .invitacion-texto {
     width: min(90%, 45rem);
-    padding: 2rem;
+    padding: 1rem;
     font-size: 1.6rem;
 
-    border-width: 0.5rem;/* Ancho del borde */
-    border-style: solid;/* Estilo del borde */
-    border-image: linear-gradient(to right,#ecc440, #fffa8a, #ddac17, #ffff95); /* Gradiente dorado */
-    border-image-slice: 1; /* Define la parte del borde que se repite */
+    /* border-width: 0.5rem;/* Ancho del borde */
+    /* border-style: solid;/* Estilo del borde */
+    /* border-image: linear-gradient(to right,#ecc440, #fffa8a, #ddac17, #ffff95); /* Gradiente dorado */
+    /* border-image-slice: 1; /* Define la parte del borde que se repite */
 }
 
 .invitacion-texto p{
     color: var(--texto-vino);
-    font-weight: bold;
+    /* font-weight: bold; */
+    font-size: 1.8rem;
 }
 
 .invitacion-texto p:last-of-type{
@@ -186,6 +258,17 @@ a{
 
 .invitacion-texto h1 {
     margin: 1.6rem;
+}
+
+.invitacion-particular h2{
+    font-size: 2rem;
+    font-family: "Merienda", cursive;
+}
+
+.invitacion-particular h3{
+    font-size: 2.5rem;
+    font-family: 'kalam';
+    text-transform: lowercase;
 }
 
 /* Estilos para las ubicaciones */

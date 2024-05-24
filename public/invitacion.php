@@ -75,6 +75,29 @@ $rutabase="../../public/";
     </div>
   </div>
 
+  <!-- Seccion Introduccion -->
+  <div class="invitacion-intro">
+    <!-- <img src="./assets/images/invitacionParticular.png" alt="Invitacion Particular"> -->
+    <div class="invitacion-intro-texto text-center">
+      <img src="<?= $rutabase ?>/assets/images/logo-removebg-preview.png" alt="logo">
+      <p class="">
+        Con nuestro amor, la presencia de dios entre mosotros y la bendicion de nuestros padres
+      </p>
+      <div class="contenedor">
+        <div class="novios">
+          <h4>Padres de la novia</h4>
+          <p>Reyna Moran Montellano</p>
+          <p>Juan Hernández Martínez <img src="<?= $rutabase ?>/assets/images/cruz.png" alt="cruz"></p>
+        </div>
+        <div class="novios">
+          <h4>Padres del novio</h4>
+          <p>Blanca Rita López Rasgado</p>
+          <p>David Orozco Soto</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Seccion Invitaciones Particulares -->
   <?php
   if (isset($nombre)) {
@@ -105,7 +128,7 @@ $rutabase="../../public/";
             <img src="<?= $rutabase ?>assets/images/iglesia.jpg" class="card-img-top " alt="iglesia">
             <h2 class="card-titulo text-center">parroquia reina de las americas</h2>
             <p class="card-text"><span>Cuándo: </span>
-              7 de diciembre de 2024 a las 12:00 PM.
+              7 de diciembre de 2024 a las 2:45 PM.
             </p>
 
             <p class="card-text"><span>Dirección: </span>
@@ -143,7 +166,7 @@ $rutabase="../../public/";
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.9372558213104!2d-99.34305529999999!3d19.371869300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d207b5af925b57%3A0xe5a881d93949f253!2sPARROQUIA%20REINA%20DE%20LAS%20AMERICAS!5e0!3m2!1ses-419!2smx!4v1713553676090!5m2!1ses-419!2smx" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <hr>
                 <h5>parroquia reina de las americas</h5>
-                <p><span>Cuándo:</span> 7 de Diciembre de 2024 a las 12:00 PM.</p>
+                <p><span>Cuándo:</span> 7 de Diciembre de 2024 a las 2:45 PM.</p>
                 <p><span>Dirección:</span> Av. México Manzana 001, Dos Ríos, 52790 Huixquilucan de Degollado, Méx.</p>
               </div>
               <div class="modal-footer">
@@ -162,7 +185,7 @@ $rutabase="../../public/";
             <img src="<?= $rutabase ?>assets/images/salon.jpg" alt="Jardin la Loma" class="card-img-top">
             <h2 class="card-titulo text-center">jardín la loma</h2>
             <p class="card-text"><span>Cuándo: </span>
-              7 de diciembre de 2024 a las 7:00 PM.
+              7 de diciembre de 2024 a las 5:00 PM.
             </p>
 
             <p class="card-text"><span>Dirección: </span>
@@ -200,7 +223,7 @@ $rutabase="../../public/";
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.8792984870756!2d-99.33786212405893!3d19.37437834253626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d207b28de7f103%3A0x2e563b0f51ce818c!2sJard%C3%ADn%20La%20Loma!5e0!3m2!1ses-419!2smx!4v1713566446206!5m2!1ses-419!2smx" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <hr>
                 <h5>jadín la loma</h5>
-                <p><span>Cuándo:</span> 7 de Diciembre de 2024 a las 7:00 PM.</p>
+                <p><span>Cuándo:</span> 7 de Diciembre de 2024 a las 5:00 PM.</p>
                 <p><span>Dirección:</span> Carretera San Ramón, KM 0.5 Col. San Ramón 52760 Huixquilucan (Estado México)
                 </p>
               </div>

@@ -41,51 +41,53 @@
   </div>
 
   <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">No.</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Numero de Pases</th>          
-          <th scope="col">Es una familia</th>
-          <th scope="col">Invitacion</th>
-          <th scope="col">Acción</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php $contador = 1; ?>
-        <?php foreach ($resultsLilian as $registro) : ?>
+    <div class="table-responsive">
+      <table class="table table-striped table-sm">
+        <thead>
           <tr>
-            <th scope="row"><?= $contador ?></th>
-            <td><?= $registro["nombre"] ?></td>
-            <td><?= $registro["numero_pases"] ?></td>
-            <?php $esFamilia=($registro["familia"]>0)? "Si":"No"; ?>
-            <td><?= $esFamilia ?></td>
-            <td>
-              <a class="btn btn-info btn-sm" role="button" aria-disabled="true" href="http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-box-arrow-up-right"></i>
-                Ver
-              </a>
-              <button type="button" class="btn btn-primary btn-sm" onclick="copiarTexto('http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>')">
-                <i class="bi bi-copy"></i>
-                Copear
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#createModal" data-bs-id="<?= $registro["id"] ?>">
-                <i class="bi bi-pencil-square"></i>
-                Editar
-              </button>
-              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="<?= $registro["id"] ?>">
-                <i class="bi bi-trash3"></i>
-                Eliminar
-              </button>
-            </td>
-            <?php $contador++ ?>
+            <th scope="col">No.</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Numero de Pases</th>
+            <th scope="col">Es una familia</th>
+            <th scope="col">Invitacion</th>
+            <th scope="col">Acción</th>
           </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <?php $contador = 1; ?>
+          <?php foreach ($resultsLilian as $registro) : ?>
+            <tr>
+              <th scope="row"><?= $contador ?></th>
+              <td><?= $registro["nombre"] ?></td>
+              <td><?= $registro["numero_pases"] ?></td>
+              <?php $esFamilia = ($registro["familia"] > 0) ? "Si" : "No"; ?>
+              <td><?= $esFamilia ?></td>
+              <td>
+                <a class="btn btn-info btn-sm" role="button" aria-disabled="true" href="http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                  Ver
+                </a>
+                <button type="button" class="btn btn-primary btn-sm" onclick="copiarTexto('http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>')">
+                  <i class="bi bi-copy"></i>
+                  Copear
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#createModal" data-bs-id="<?= $registro["id"] ?>">
+                  <i class="bi bi-pencil-square"></i>
+                  Editar
+                </button>
+                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="<?= $registro["id"] ?>">
+                  <i class="bi bi-trash3"></i>
+                  Eliminar
+                </button>
+              </td>
+              <?php $contador++ ?>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <div class="container">
@@ -94,51 +96,54 @@
     </h5>
   </div>
   <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">No.</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Numero de Pases</th>
-          <th scope="col">Es una famila</th>
-          <th scope="col">Invitacion</th>
-          <th scope="col">Acción</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php $contador = 1; ?>
-        <?php foreach ($resultsDavid as $registro) : ?>
+    <div class="table-responsive">
+      <table class="table table-striped table-sm">
+        <thead>
           <tr>
-            <th scope="row"><?= $contador ?></th>
-            <td><?= $registro["nombre"] ?></td>
-            <td><?= $registro["numero_pases"] ?></td>
-            <?php $esFamilia=($registro["familia"]>0)? "Si":"No"; ?>
-            <td><?= $esFamilia ?></td>
-            <td>
-              <a class="btn btn-info btn-sm" role="button" aria-disabled="true" href="http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-box-arrow-up-right"></i>
-                Ver
-              </a>
-              <button type="button" class="btn btn-primary btn-sm" onclick="copiarTexto('http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>')">
-                <i class="bi bi-copy"></i>
-                Copear
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#createModal" data-bs-id="<?= $registro["id"] ?>">
-                <i class="bi bi-pencil-square"></i>
-                Editar
-              </button>
-              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="<?= $registro["id"] ?>">
-                <i class="bi bi-trash3"></i>
-                Eliminar
-              </button>
-            </td>
-            <?php $contador++ ?>
+            <th scope="col">No.</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Numero de Pases</th>
+            <th scope="col">Es una famila</th>
+            <th scope="col">Invitacion</th>
+            <th scope="col">Acción</th>
           </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <?php $contador = 1; ?>
+          <?php foreach ($resultsDavid as $registro) : ?>
+            <tr>
+              <th scope="row"><?= $contador ?></th>
+              <td><?= $registro["nombre"] ?></td>
+              <td><?= $registro["numero_pases"] ?></td>
+              <?php $esFamilia = ($registro["familia"] > 0) ? "Si" : "No"; ?>
+              <td><?= $esFamilia ?></td>
+              <td>
+                <a class="btn btn-info btn-sm" role="button" aria-disabled="true" href="http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                  Ver
+                </a>
+                <button type="button" class="btn btn-primary btn-sm" onclick="copiarTexto('http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>')">
+                  <i class="bi bi-copy"></i>
+                  Copear
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#createModal" data-bs-id="<?= $registro["id"] ?>">
+                  <i class="bi bi-pencil-square"></i>
+                  Editar
+                </button>
+                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="<?= $registro["id"] ?>">
+                  <i class="bi bi-trash3"></i>
+                  Eliminar
+                </button>
+              </td>
+              <?php $contador++ ?>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+
+    </div>
   </div>
 
   <!-- Modal Crear/Editar -->
@@ -249,15 +254,15 @@
       };
       fetch(url, options)
         .then(response => response.json()) // Convertir la respuesta a JSON
-        .then(data=>{
-          invitadoSpan.textContent=data.nombre;
-          deleteForm.action='/control/'+id;
+        .then(data => {
+          invitadoSpan.textContent = data.nombre;
+          deleteForm.action = '/control/' + id;
         })
         .catch(error => console.error('Error:', error)); // Manejar errores
     });
     deleteModal.addEventListener('hidden.bs.modal', () => {
       invitadoSpan.textContent = '';
-      deleteForm.action='';
+      deleteForm.action = '';
     });
 
 
