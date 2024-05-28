@@ -16,6 +16,34 @@ if (isset($results)) {
 }
 
 $rutabase="../../public/";
+
+function generarEtiquetasImg($rutaCarpeta) {
+  // Comprueba si la carpeta existe
+  if (is_dir($rutaCarpeta)) {
+      // Abre la carpeta
+      if ($dh = opendir($rutaCarpeta)) {
+        $contador=1;
+          // Recorre todos los archivos de la carpeta
+          while (($archivo = readdir($dh)) !== false) {
+              // Comprueba si el archivo es una imagen
+              if (preg_match("/.png$|.jpg$|.jpeg$|.gif$/i", $archivo)) {
+                  // Imprime la etiqueta img con la ruta de la imagen
+                  echo '<div class="carousel-item">
+                    <img src="'.$rutaCarpeta.'/'.$archivo.'" alt="Imagen'.$contador.'" class="d-block w-100">
+                    </div>';
+                  $contador++;
+              }
+          }
+          // Cierra la carpeta
+          closedir($dh);
+      }
+  } else {
+      echo 'La carpeta no existe. '.$rutaCarpeta.'<br>';
+      echo $_SERVER['SCRIPT_FILENAME'].'<br>';
+      echo dirname(__FILE__).'<br>';
+  }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -115,7 +143,7 @@ $rutabase="../../public/";
   <div class="ubicaciones container">
     <div class="row">
       <div class="col align-self-center text-center">
-        <h2 class="ubicaciones-titulo">Celebremos Juntos: Lugar y Fecha</h2>
+        <h2 class="ubicaciones-titulo">Celebremos Juntos</h2>
         <h3 class="ubicaciones-fecha">7 de diciembre de 2024</h3>
       </div>
     </div>
@@ -124,12 +152,10 @@ $rutabase="../../public/";
       <div class="col-12 col-md-6 mb-3">
         <div class="card h-100">
           <div class="card-body">
-            <h2 class="card-titulo text-center">Ceremonio Religiosa</h2>
+            <h2 class="card-titulo text-center">Ceremonio Religiosa 2:45 PM</h2>
             <img src="<?= $rutabase ?>assets/images/iglesia.jpg" class="card-img-top " alt="iglesia">
             <h2 class="card-titulo text-center">parroquia reina de las americas</h2>
-            <p class="card-text"><span>Cuándo: </span>
-              7 de diciembre de 2024 a las 2:45 PM.
-            </p>
+            <!-- <p class="card-text"><span>Cuándo: </span> 7 de diciembre de 2024 a las 2:45 PM. </p> -->
 
             <p class="card-text"><span>Dirección: </span>
               Av. México Manzana 001, Dos Ríos, 52790 Huixquilucan de Degollado, Méx.
@@ -181,12 +207,10 @@ $rutabase="../../public/";
       <div class="col-12 col-md-6 mb-3">
         <div class="card h-100">
           <div class="card-body">
-            <h2 class="card-titulo text-center">Recepción</h2>
+            <h2 class="card-titulo text-center">Recepción 5:00 PM</h2>
             <img src="<?= $rutabase ?>assets/images/salon.jpg" alt="Jardin la Loma" class="card-img-top">
             <h2 class="card-titulo text-center">jardín la loma</h2>
-            <p class="card-text"><span>Cuándo: </span>
-              7 de diciembre de 2024 a las 5:00 PM.
-            </p>
+            <!-- <p class="card-text"><span>Cuándo: </span>7 de diciembre de 2024 a las 5:00 PM.</p> -->
 
             <p class="card-text"><span>Dirección: </span>
               Carretera San Ramón, KM 0.5 Col. San Ramón 52760 Huixquilucan (Estado México)
@@ -242,6 +266,33 @@ $rutabase="../../public/";
     <img src="<?= $rutabase ?>/assets/images/itinerario.png" alt="itinerario">
   </div>
 
+  <!-- Carrusel de Imagenes -->
+  <div class="container">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <?php
+          generarEtiquetasImg($rutabase.'/assets/images/');
+
+        ?>
+        <!-- <div class="carousel-item active">
+          <img src="<?= $rutabase ?>/assets/images/gallitos/_a6d4a9ca-7ec4-4245-8e93-c3d9479814e5.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="<?= $rutabase ?>/assets/images/gallitos/_bb8d73b5-53ab-477f-9794-28e0c299ac49.jpg" class="d-block w-100" alt="...">
+        </div> -->
+        
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
   <!-- Seccion mesa de regalos -->
   <div class="mesa-regalos">
     <div class="container text-center">
@@ -265,6 +316,7 @@ $rutabase="../../public/";
         </a>
       </div>
 
+      <!-- Ocultar datos Bancarios 
       <div class="row d-flex justify-content-center align-items-center">
         <div class="col-8 d-flex justify-content-center align-items-center">
           <div class="btn-banco mb-3" data-bs-toggle="collapse" data-bs-target="#collapseBanco" aria-expanded="false" aria-controls="collapseBanco">
@@ -284,6 +336,7 @@ $rutabase="../../public/";
           </div>
         </div>
       </div>
+      -->
     </div>
   </div>
 

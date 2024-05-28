@@ -1,6 +1,12 @@
+# Forzar HTTPS, Quitar los # en el hosting
 RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,NC,NE,R=301]
 
+# Redirección a index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
 RewriteRule ^(.*)$ index.php?slug=$1 [L]
+
+# Del hosting gratuito para mostrar los errores dw php
+# php_value display_errors On
