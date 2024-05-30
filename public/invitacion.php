@@ -15,32 +15,38 @@ if (isset($results)) {
   }
 }
 
-$rutabase="../../public/";
+$rutabase = "../../public/";
 
-function generarEtiquetasImg($rutaCarpeta) {
+function generarEtiquetasImg($rutaCarpeta)
+{
   // Comprueba si la carpeta existe
   if (is_dir($rutaCarpeta)) {
-      // Abre la carpeta
-      if ($dh = opendir($rutaCarpeta)) {
-        $contador=1;
-          // Recorre todos los archivos de la carpeta
-          while (($archivo = readdir($dh)) !== false) {
-              // Comprueba si el archivo es una imagen
-              if (preg_match("/.png$|.jpg$|.jpeg$|.gif$/i", $archivo)) {
-                  // Imprime la etiqueta img con la ruta de la imagen
-                  echo '<div class="carousel-item">
-                    <img src="'.$rutaCarpeta.'/'.$archivo.'" alt="Imagen'.$contador.'" class="d-block w-100">
+    // Abre la carpeta
+    if ($dh = opendir($rutaCarpeta)) {
+      // echo $rutaCarpeta . '<br>';
+      $contador = 1;
+      // Recorre todos los archivos de la carpeta
+      while (($archivo = readdir($dh)) !== false) {
+        // Comprueba si el archivo es una imagen
+        if (preg_match("/.png$|.jpg$|.jpeg$|.gif$/i", $archivo)) {
+          // Imprime la etiqueta img con la ruta de la imagen
+          echo '<div class="carousel-item'.($contador==1?' active':'').'">
+                    <img src="' . $rutaCarpeta . '/' . $archivo . '" alt="Imagen' . $contador . '" class="d-block w-100">
                     </div>';
-                  $contador++;
-              }
-          }
-          // Cierra la carpeta
-          closedir($dh);
+          $contador++;
+        }else{
+          // echo 'No hay match'.$archivo . '<br>';
+        }
       }
+      // Cierra la carpeta
+      closedir($dh);
+    } else {
+      echo 'no pude abrir' . $rutaCarpeta;
+    }
   } else {
-      echo 'La carpeta no existe. '.$rutaCarpeta.'<br>';
-      echo $_SERVER['SCRIPT_FILENAME'].'<br>';
-      echo dirname(__FILE__).'<br>';
+    echo 'La carpeta no existe. ' . $rutaCarpeta . '<br>';
+    echo $_SERVER['SCRIPT_FILENAME'] . '<br>';
+    echo dirname(__FILE__) . '<br>';
   }
 }
 
@@ -67,7 +73,7 @@ function generarEtiquetasImg($rutaCarpeta) {
   <link rel="stylesheet" href="https://cdn.addevent.com/libs/atc/themes/fff-theme-6/theme.css" type="text/css" media="all" />
 
   <!-- Estilos de la pagina -->
-  <link rel="stylesheet" href="<?= $rutabase?>style.css">
+  <link rel="stylesheet" href="<?= $rutabase ?>style.css">
   <!-- Preload -->
   <link rel="preload" href="<?= $rutabase ?>normalize.css" as="style">
   <link rel="stylesheet" href="<?= $rutabase ?>normalize.css">
@@ -267,11 +273,12 @@ function generarEtiquetasImg($rutaCarpeta) {
   </div>
 
   <!-- Carrusel de Imagenes -->
-  <div class="container">
+  <div class="container nosotros-carrusel">
+    <h2 class="text-center">Nosotros</h2>
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <?php
-          generarEtiquetasImg($rutabase.'/assets/images/');
+        generarEtiquetasImg('public/assets/images/gallitos');
 
         ?>
         <!-- <div class="carousel-item active">
@@ -280,7 +287,6 @@ function generarEtiquetasImg($rutaCarpeta) {
         <div class="carousel-item">
           <img src="<?= $rutabase ?>/assets/images/gallitos/_bb8d73b5-53ab-477f-9794-28e0c299ac49.jpg" class="d-block w-100" alt="...">
         </div> -->
-        
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -405,7 +411,7 @@ function generarEtiquetasImg($rutaCarpeta) {
 
   <!-- JS de Bootrstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script src="<?= $rutabase?>main.js"></script>
+  <script src="<?= $rutabase ?>main.js"></script>
 </body>
 
 </html>
