@@ -23,12 +23,13 @@ class Conection {
     }
 
     private function make_connection() {
-        $server = "localhost"; 
+        $server = "localhost";
+        $port = '3307';
         $database = "invitaciones_boda"; 
         $username = "root"; 
-        $password = ""; 
+        $password = "contraseña"; 
 
-        $conexion = new \PDO("mysql:host=$server;dbname=$database", $username, $password);
+        $conexion = new \PDO("mysql:host=$server;port=$port;dbname=$database", $username, $password);
 
         $setnames = $conexion->prepare("SET NAMES 'utf8'");
         $setnames->execute();

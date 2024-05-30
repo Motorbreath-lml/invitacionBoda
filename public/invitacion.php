@@ -31,7 +31,7 @@ function generarEtiquetasImg($rutaCarpeta)
         if (preg_match("/.png$|.jpg$|.jpeg$|.gif$/i", $archivo)) {
           // Imprime la etiqueta img con la ruta de la imagen
           echo '<div class="carousel-item'.($contador==1?' active':'').'">
-                    <img src="' . $rutaCarpeta . '/' . $archivo . '" alt="Imagen' . $contador . '" class="d-block w-100">
+                    <img src="' . "../../public/assets/images/gallitos" . '/' . $archivo . '" alt="Imagen' . $contador . '" class="d-block w-100">
                     </div>';
           $contador++;
         }else{
