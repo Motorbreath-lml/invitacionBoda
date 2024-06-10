@@ -69,7 +69,7 @@
                 </a>
                 <button type="button" class="btn btn-primary btn-sm" onclick="copiarTexto('http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>')">
                   <i class="bi bi-copy"></i>
-                  Copear
+                  Copiar
                 </button>
               </td>
               <td>
@@ -124,7 +124,7 @@
                 </a>
                 <button type="button" class="btn btn-primary btn-sm" onclick="copiarTexto('http://<?= $_SERVER['HTTP_HOST'] ?>/invitacion/<?= $registro["slug"] ?>')">
                   <i class="bi bi-copy"></i>
-                  Copear
+                  Copiar
                 </button>
               </td>
               <td>
@@ -228,6 +228,24 @@
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             <button type="submit" class="btn btn-danger">Eliminar</button>
           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de copiar enlace invitacion -->
+  <div class="modal fade" id="modalCopiar" tabindex="-1" aria-labelledby="modalCopiarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <div id="tituloModalCopiar">
+            Enlace copiado al portapapeles
+          </div>
+          <div class="">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+              Cerrar
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -342,6 +360,9 @@
       }
     });
 
+    // Copiar invitacion al portapapeles
+    const modalCopiar=bootstrap.Modal.getOrCreateInstance('#modalCopiar');
+    const tituloModalCopiar=document.getElementById('tituloModalCopiar');
     function copiarTexto(arguemetno) {
       navigator.clipboard.writeText(arguemetno)
         .then(() => {
@@ -350,7 +371,17 @@
         .catch(err => {
           console.error('Error al copiar el texto:', err);
         });
+      tituloModalCopiar.innerHTML='<p>Enlace:</p><p class="fw-semibold">'+arguemetno+'</p><p>Copiado al portapapeles!</p>';
+      modalCopiar.show();
+      setTimeout(function(){
+        modalCopiar.hide();
+      },5000);
     }
+    //Limpiar cuando el modal de oculta
+    modalCopiar.addEventListener('hidden.bs.modal',()=>{
+      tituloModalCopiar.innerHTML='';
+    });
+
 
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
     const appendAlert = (message, type) => {

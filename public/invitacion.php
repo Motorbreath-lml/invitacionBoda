@@ -31,11 +31,15 @@ function generarEtiquetasImg($rutaCarpeta)
         if (preg_match("/.png$|.jpg$|.jpeg$|.gif$/i", $archivo)) {
           // Imprime la etiqueta img con la ruta de la imagen
           echo '<div class="carousel-item'.($contador==1?' active':'').'">
-                    <img src="' . "../../public/assets/images/gallitos" . '/' . $archivo . '" alt="Imagen' . $contador . '" class="d-block w-100">
-                    </div>';
+                  <picture>
+                    <source srcset="'."../../public/assets/images/gallitos" . '/' . $contador.'.avif" type="image/avif">
+                    <img loading="lazy" src="' . "../../public/assets/images/gallitos" . '/' . $archivo . '" alt="Imagen' . $contador . '" class="d-block w-100">
+                  </picture>
+                </div>';
           $contador++;
         }else{
           // echo 'No hay match'.$archivo . '<br>';
+          // <img src="' . "../../public/assets/images/gallitos" . '/' . $archivo . '" alt="Imagen' . $contador . '" class="d-block w-100">
         }
       }
       // Cierra la carpeta
@@ -85,7 +89,11 @@ function generarEtiquetasImg($rutaCarpeta)
 <body>
   <!-- Seccion presentacion -->
   <div class="fondo">
-    <img src="<?= $rutabase ?>/assets/images/invitacion vino (1).png" alt="presentacion">
+    <picture>
+      <source srcset="<?= $rutabase ?>/assets/images/invitacion-vino.avif" type="image/avif">
+      <source srcset="<?= $rutabase ?>/assets/images/invitacion-vino.webp" type="image/webp">
+      <img loading="lazy" src="<?= $rutabase ?>/assets/images/invitacion-vino.jpg" alt="presentacion">
+    </picture>
     <div class="tiempo">
       <div>
         <h1 id="dias">123</h1>
@@ -269,8 +277,14 @@ function generarEtiquetasImg($rutaCarpeta)
 
   <!-- Seccion itinerario -->
   <div class="itinerario">
-    <img src="<?= $rutabase ?>/assets/images/itinerario.png" alt="itinerario">
+    <picture>
+      <source srcset="<?= $rutabase ?>/assets/images/itinerario.avif" type="image/avif">
+      <source srcset="<?= $rutabase ?>/assets/images/itinerario.webp" type="image/webp">
+      <img loading="lazy" src="<?= $rutabase ?>/assets/images/itinerario.jpg" alt="presentacion">
+    </picture>
   </div>
+
+  <!-- <img src="<?= $rutabase ?>/assets/images/itinerario.png" alt="itinerario"> -->
 
   <!-- Carrusel de Imagenes -->
   <div class="container nosotros-carrusel">
