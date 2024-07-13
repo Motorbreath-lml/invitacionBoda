@@ -36,7 +36,7 @@
 
   <div class="container">
     <h5>
-      Invitaciones de Lilián
+      Invitaciones de Lilian
     </h5>
   </div>
 
@@ -54,12 +54,12 @@
           </tr>
         </thead>
         <tbody>
-          <?php $contador = 1; ?>
+          <?php $contador = 1; $totalPasesLilian=0; ?>
           <?php foreach ($resultsLilian as $registro) : ?>
             <tr>
               <th scope="row"><?= $contador ?></th>
               <td><?= $registro["nombre"] ?></td>
-              <td><?= $registro["numero_pases"] ?></td>
+              <td><?= $registro["numero_pases"] ?></td><?php $totalPasesLilian+=$registro["numero_pases"] ?>
               <?php $esFamilia = ($registro["familia"] > 0) ? "Si" : "No"; ?>
               <td><?= $esFamilia ?></td>
               <td>
@@ -85,6 +85,11 @@
               <?php $contador++ ?>
             </tr>
           <?php endforeach; ?>
+          <tr>
+            <th>*</th>
+            <th>Total Pases de Lilian</th>
+            <th><?= $totalPasesLilian ?></th>            
+          </tr>
         </tbody>
       </table>
     </div>
@@ -109,12 +114,12 @@
           </tr>
         </thead>
         <tbody>
-          <?php $contador = 1; ?>
+          <?php $contador = 1; $totalPasesDavid=0;?>
           <?php foreach ($resultsDavid as $registro) : ?>
             <tr>
               <th scope="row"><?= $contador ?></th>
               <td><?= $registro["nombre"] ?></td>
-              <td><?= $registro["numero_pases"] ?></td>
+              <td><?= $registro["numero_pases"] ?></td> <?php $totalPasesDavid+=$registro["numero_pases"] ?>
               <?php $esFamilia = ($registro["familia"] > 0) ? "Si" : "No"; ?>
               <td><?= $esFamilia ?></td>
               <td>
@@ -140,6 +145,16 @@
               <?php $contador++ ?>
             </tr>
           <?php endforeach; ?>
+          <tr>
+            <th>*</th>
+            <th>Total Pases de David</th>
+            <th><?= $totalPasesDavid ?></th>            
+          </tr>
+          <tr>
+            <th>**</th>
+            <th>Pases totales</th>
+            <th><?= $totalPasesLilian + $totalPasesDavid ?></th>
+          </tr>
         </tbody>
       </table>
 

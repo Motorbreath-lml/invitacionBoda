@@ -30,14 +30,14 @@ function generarEtiquetasImg($rutaCarpeta)
         // Comprueba si el archivo es una imagen
         if (preg_match("/.png$|.jpg$|.jpeg$|.gif$/i", $archivo)) {
           // Imprime la etiqueta img con la ruta de la imagen
-          echo '<div class="carousel-item'.($contador==1?' active':'').'">
+          echo '<div class="carousel-item' . ($contador == 1 ? ' active' : '') . '">
                   <picture>
-                    <source srcset="'."../../public/assets/images/gallitos" . '/' . $contador.'.avif" type="image/avif">
+                    <source srcset="' . "../../public/assets/images/gallitos" . '/' . $contador . '.avif" type="image/avif">
                     <img loading="lazy" src="' . "../../public/assets/images/gallitos" . '/' . $archivo . '" alt="Imagen' . $contador . '" class="d-block w-100">
                   </picture>
                 </div>';
           $contador++;
-        }else{
+        } else {
           // echo 'No hay match'.$archivo . '<br>';
           // <img src="' . "../../public/assets/images/gallitos" . '/' . $archivo . '" alt="Imagen' . $contador . '" class="d-block w-100">
         }
@@ -123,7 +123,7 @@ function generarEtiquetasImg($rutaCarpeta)
     <div class="invitacion-intro-texto text-center">
       <img src="<?= $rutabase ?>/assets/images/logo-removebg-preview.png" alt="logo">
       <p class="">
-        Con nuestro amor, la presencia de dios entre mosotros y la bendicion de nuestros padres
+        Con nuestro amor, la presencia de dios entre nosotros y la bendicion de nuestros padres.
       </p>
       <div class="contenedor">
         <div class="novios">
@@ -310,8 +310,15 @@ function generarEtiquetasImg($rutaCarpeta)
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-    </div>
+    </div>    
   </div>
+  <div class="panoramica">
+      <picture>
+        <source srcset="<?= $rutabase ?>/assets/images/panoramico.avif" type="image/avif">
+        <source srcset="<?= $rutabase ?>/assets/images/panoramico.webp" type="image/webp">
+        <img loading="lazy" src="<?= $rutabase ?>/assets/images/panoramico.jpg" alt="presentacion">
+      </picture>
+    </div>
 
   <!-- Seccion mesa de regalos -->
   <div class="mesa-regalos">
@@ -325,38 +332,13 @@ function generarEtiquetasImg($rutaCarpeta)
         </p>
       </div>
       <div class="row d-flex justify-content-center align-items-center">
-        <a href="https://mesaderegalos.liverpool.com.mx/" rel="noopener noreferrer" target="_blank" class="btn-mesa col-12 col-lg-6 m-3">
+        <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51465497" rel="noopener noreferrer" target="_blank" class="btn-mesa col-12 col-lg-6 m-3">
           <img src="<?= $rutabase ?>/assets/images/logos/Liverpool.png" alt="Liverpool">
         </a>
-        <a href="https://www.amazon.com.mx/registries" rel="noopener noreferrer" target="_blank" class="btn-mesa col-12 col-lg-6 m-3">
+        <a href="https://www.amazon.com.mx/wedding/share/BodaLilianyDavid" rel="noopener noreferrer" target="_blank" class="btn-mesa col-12 col-lg-6 m-3">
           <img src="<?= $rutabase ?>/assets/images/logos/Amazon.png" alt="Amazon">
         </a>
-        <a href="https://www.sears.com.mx/Mesa-de-Regalos/" rel="noopener noreferrer" target="_blank" class="btn-mesa col-12 col-lg-6 m-3">
-          <img src="<?= $rutabase ?>/assets/images/logos/Sears.svg" alt="Sears">
-        </a>
       </div>
-
-      <!-- Ocultar datos Bancarios 
-      <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-8 d-flex justify-content-center align-items-center">
-          <div class="btn-banco mb-3" data-bs-toggle="collapse" data-bs-target="#collapseBanco" aria-expanded="false" aria-controls="collapseBanco">
-            <i class="bi bi-bank"></i> Ver Datos bancarios
-          </div>
-        </div>
-      </div>
-      <div class="row d-flex justify-content-center align-items-center">
-        <div class="col col-md-6">
-          <div class="collapse" id="collapseBanco">
-            <div class="card card-body">
-              <p>BANCO: XXXXXXXXXXX</p>
-              <p>Nº DE CUENTA: XXXXXXXX</p>
-              <p>CUENTA CLABE: XXXXXXXX</p>
-              <p>TITULAR: XXXXXXXXXX</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      -->
     </div>
   </div>
 
@@ -373,7 +355,7 @@ function generarEtiquetasImg($rutaCarpeta)
     <div class="d-flex flex-column justify-content-center align-items-center">
       <a href="https://wa.me/1111111111111?text=Hola%20Lili%C3%A1n%2C%20esto%20es%20una%20prueba%20de%20confirmar%20la%20asistencia" target="_blank">
         <p class="whats">
-          <i class="bi bi-whatsapp"></i> Confirmar a Lilián
+          <i class="bi bi-whatsapp"></i> Confirmar a Lilian
         </p>
       </a>
       <a href="https://wa.me/5215527201409?text=Hola%20David%2C%20esto%20es%20una%20prueba%20de%20confirmar%20la%20asistencia" target="_blank">
@@ -387,7 +369,10 @@ function generarEtiquetasImg($rutaCarpeta)
   <!-- Boton de musica -->
   <div class="musica">
     <i id="botonMusica" class="bi bi-volume-mute-fill"></i>
-    <audio id="musicaFondo" src="<?= $rutabase ?>/assets/music/Johann Pachelbel - Canon in D Major.mp3"></audio>
+    <audio id="musicaFondo">
+      <source src="<?= $rutabase ?>/assets/music/RioRomaMiPersonaFavorita.weba" type="audio/webm">
+      <source src="<?= $rutabase ?>/assets/music/RioRomaMiPersonaFavorita.mp3" type="audio/mpeg">
+    </audio>
   </div>
   <!-- Modal de musica -->
   <div class="modal fade" id="modalMusica" tabindex="-1" aria-labelledby="modalMusicaLabel" aria-hidden="true">
@@ -395,7 +380,7 @@ function generarEtiquetasImg($rutaCarpeta)
       <div class="modal-content">
         <div class="modal-body text-center">
           <h5>
-            Bienvenidos a la invitación de Lilián y David
+            Bienvenidos a la invitación de Lilian y David
           </h5>
           <div class="">
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">

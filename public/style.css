@@ -345,6 +345,7 @@ a{
 
 .itinerario img{
     height: 100dvh;
+    width: 100%;
     object-fit: cover;
     overflow: hidden;
     box-shadow: 1rem 0rem 1.5rem -0.5rem rgba(0, 0, 0, 0.5),
@@ -353,13 +354,26 @@ a{
 /* height: 100%; */
 
 /* Carrusel de imagenes*/
-/* .nosotros-carrusel{
-    
-} */
+.carousel-inner img{
+    height: 90dvh;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 1rem;
+}
 .nosotros-carrusel h2{
     font-family: "Great Vibes", cursive;
     font-size: 5rem;
     margin: 2rem 0rem 1rem 0rem;
+}
+/* Foto panoramica */
+.panoramica{
+    margin: 1rem 0;
+}
+
+.panoramica img{
+    width: 100%;
+    border-radius: 1rem;
 }
 
 /* Mesa de regalos */

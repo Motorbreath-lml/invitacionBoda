@@ -1,7 +1,7 @@
 // Contador regresivo
 // Los meses comienzan a contar desde el 0, 0 es enero - 11 diciembre
 // año, mes, dias, horas, minutos
-let fechaBoda = new Date(2024, 12, 7, 12);
+let fechaBoda = new Date(2024, 11, 7, 15);
 
 let h1Dias = document.querySelector('#dias');
 let h1Horas = document.querySelector('#horas');
@@ -11,7 +11,11 @@ let h1Segundos = document.querySelector('#segundos');
 function actualizarReloj() {
     let horaActual = new Date();
     // Diferencia de tiempo, se trabaja en milisegundos
+
     let diferenciaMilisegundos = fechaBoda.getTime() - horaActual.getTime();
+    if(horaActual.getTime()>=fechaBoda.getTime()){
+        diferenciaMilisegundos=0;
+    }
     // Convertir dias, horas, minutos y segundos
     let dias = Math.floor(diferenciaMilisegundos / (1000 * 60 * 60 * 24));
     let modDias = diferenciaMilisegundos % (1000 * 60 * 60 * 24);
