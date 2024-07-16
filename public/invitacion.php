@@ -62,6 +62,11 @@ function generarEtiquetasImg($rutaCarpeta)
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Evitar que el namegador almacene alguna cache de la pagina, esto es temporal en lo que se sigue desarrollando la pagina -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -162,11 +167,11 @@ function generarEtiquetasImg($rutaCarpeta)
       </div>
     </div>
     <div class="row">
-      <!-- Ceremonio religiosa -->
+      <!-- Ceremonia religiosa -->
       <div class="col-12 col-md-6 mb-3">
         <div class="card h-100">
           <div class="card-body">
-            <h2 class="card-titulo text-center">Ceremonio Religiosa 2:45 PM</h2>
+            <h2 class="card-titulo text-center">Ceremonia Religiosa 2:45 PM</h2>
             <img src="<?= $rutabase ?>assets/images/iglesia.jpg" class="card-img-top " alt="iglesia">
             <h2 class="card-titulo text-center">parroquia reina de las americas</h2>
             <!-- <p class="card-text"><span>Cuándo: </span> 7 de diciembre de 2024 a las 2:45 PM. </p> -->
@@ -353,12 +358,12 @@ function generarEtiquetasImg($rutaCarpeta)
       Te esperamos
     </p>
     <div class="d-flex flex-column justify-content-center align-items-center">
-      <a href="https://wa.me/1111111111111?text=Hola%20Lili%C3%A1n%2C%20esto%20es%20una%20prueba%20de%20confirmar%20la%20asistencia" target="_blank">
+      <a href="https://wa.me/5215516887524?text=Hola%20Lilian%2C%20confirmo%20mi%20asistencia%20a%20tu%20boda" target="_blank">
         <p class="whats">
           <i class="bi bi-whatsapp"></i> Confirmar a Lilian
         </p>
       </a>
-      <a href="https://wa.me/5215527201409?text=Hola%20David%2C%20esto%20es%20una%20prueba%20de%20confirmar%20la%20asistencia" target="_blank">
+      <a href="https://wa.me/5215527201409?text=Hola%20David%2C%20confirmo%20mi%20asistencia%20a%20tu%20boda%2C%20camaras%20bye" target="_blank">
         <p class="whats">
           <i class="bi bi-whatsapp"></i> Confirmar a David
         </p>
