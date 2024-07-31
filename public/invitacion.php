@@ -300,12 +300,6 @@ function generarEtiquetasImg($rutaCarpeta)
         generarEtiquetasImg('public/assets/images/gallitos');
 
         ?>
-        <!-- <div class="carousel-item active">
-          <img src="<?= $rutabase ?>/assets/images/gallitos/_a6d4a9ca-7ec4-4245-8e93-c3d9479814e5.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="<?= $rutabase ?>/assets/images/gallitos/_bb8d73b5-53ab-477f-9794-28e0c299ac49.jpg" class="d-block w-100" alt="...">
-        </div> -->
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -315,15 +309,15 @@ function generarEtiquetasImg($rutaCarpeta)
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-    </div>    
+    </div>
   </div>
   <div class="panoramica">
-      <picture>
-        <source srcset="<?= $rutabase ?>/assets/images/panoramico.avif" type="image/avif">
-        <source srcset="<?= $rutabase ?>/assets/images/panoramico.webp" type="image/webp">
-        <img loading="lazy" src="<?= $rutabase ?>/assets/images/panoramico.jpg" alt="presentacion">
-      </picture>
-    </div>
+    <picture>
+      <source srcset="<?= $rutabase ?>/assets/images/panoramico.avif" type="image/avif">
+      <source srcset="<?= $rutabase ?>/assets/images/panoramico.webp" type="image/webp">
+      <img loading="lazy" src="<?= $rutabase ?>/assets/images/panoramico.jpg" alt="presentacion">
+    </picture>
+  </div>
 
   <!-- Seccion mesa de regalos -->
   <div class="mesa-regalos">

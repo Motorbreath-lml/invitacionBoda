@@ -24,10 +24,10 @@ class Conection {
 
     private function make_connection() {
         $server = "localhost";
-        $port = '3307';
+        $port = '3306';
         $database = "invitaciones_boda"; 
         $username = "root"; 
-        $password = "contraseña"; 
+        $password = ""; 
 
         $conexion = new \PDO("mysql:host=$server;port=$port;dbname=$database", $username, $password);
 
