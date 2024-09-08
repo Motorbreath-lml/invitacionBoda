@@ -226,7 +226,7 @@ function generarEtiquetasImg($rutaCarpeta)
       <div class="col-12 col-md-6 mb-3">
         <div class="card h-100">
           <div class="card-body">
-            <h2 class="card-titulo text-center">Recepción 5:00 PM</h2>
+            <h2 class="card-titulo text-center">Recepción 4:30 PM</h2>
             <img src="<?= $rutabase ?>assets/images/salon.jpg" alt="Jardin la Loma" class="card-img-top">
             <h2 class="card-titulo text-center">jardín la loma</h2>
             <!-- <p class="card-text"><span>Cuándo: </span>7 de diciembre de 2024 a las 5:00 PM.</p> -->
@@ -266,7 +266,7 @@ function generarEtiquetasImg($rutaCarpeta)
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.8792984870756!2d-99.33786212405893!3d19.37437834253626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d207b28de7f103%3A0x2e563b0f51ce818c!2sJard%C3%ADn%20La%20Loma!5e0!3m2!1ses-419!2smx!4v1713566446206!5m2!1ses-419!2smx" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <hr>
                 <h5>jadín la loma</h5>
-                <p><span>Cuándo:</span> 7 de Diciembre de 2024 a las 5:00 PM.</p>
+                <p><span>Cuándo:</span> 7 de Diciembre de 2024 a las 4:30 PM.</p>
                 <p><span>Dirección:</span> Carretera San Ramón, KM 0.5 Col. San Ramón 52760 Huixquilucan (Estado México)
                 </p>
               </div>
